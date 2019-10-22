@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:stable-slim
 
 RUN apt-get -qq update && \
    apt-get install --no-install-recommends -y wget psmisc procps sudo \
@@ -6,6 +6,7 @@ RUN apt-get -qq update && \
         libapparmor1 libedit2 libcurl4-openssl-dev libssl-dev zlib1g-dev \
 	r-base-dev r-base r-recommended
 
+# This is for galaxy only
 ENV GALAXY_WEB_PORT=10000 \
     CORS_ORIGIN=none \
     DOCKER_PORT=none \
@@ -17,13 +18,12 @@ ENV GALAXY_WEB_PORT=10000 \
 
 VOLUME ["/import"]
 WORKDIR /import/
+# End of galaxy-specific part
+
+RUN apt-get install -y libopenblas-dev
 
 ADD ./scripts/ /tmp/scripts/
 RUN /tmp/scripts/setup-shinysom-user.sh
-RUN /tmp/scripts/setup-flowsom.sh
-RUN /tmp/scripts/setup-embedsom.sh
-RUN /tmp/scripts/setup-diffsom.sh
-RUN /tmp/scripts/setup-shinysom.sh
 
 # TODO
 #ADD ./GalaxyConnector /tmp/GalaxyConnector

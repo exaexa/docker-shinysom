@@ -1,5 +1,5 @@
 library(ShinySOM)
 ShinySOM(
   dataset.dir='datasets',
-  roots=c(`Local storage`='data'),
+  roots=c(Galaxy='/import', Local='data'),
   options=list(port=8087))
