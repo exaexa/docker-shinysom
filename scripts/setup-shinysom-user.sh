@@ -4,4 +4,4 @@ useradd -m -d /home/shinysom -c ShinySOM -g shinysom -u 1000 -s /bin/bash shinys
 mkdir -p /usr/local/lib/R/site-library
 chown shinysom:shinysom /usr/local/lib/R/site-library
 
-su - shinysom -c 'Rscript /tmp/scripts/install-shinysom.R'
+su - shinysom -c 'Rscript /tmp/scripts/install-deps.R'

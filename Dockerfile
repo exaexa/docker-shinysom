@@ -24,6 +24,7 @@ RUN apt-get install -y libopenblas-dev
 
 ADD ./scripts/ /tmp/scripts/
 RUN /tmp/scripts/setup-shinysom-user.sh
+RUN /tmp/scripts/setup-shinysom.sh
 
 # TODO
 #ADD ./GalaxyConnector /tmp/GalaxyConnector
