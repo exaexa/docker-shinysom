@@ -3,7 +3,7 @@
 
 How to build and push:
 
-1. Write the current date (basically a reproducibility token) to `scripts/install-shinysom.R`. Use `date +%Y%m%d`.
+1. Write commit ID(s) to `scripts/install-shinysom.R`
 2. `docker build -t exaexa/shinysom:$(date +%Y%m%d)`
 3. `docker image tag exaexa/shinysom:$(date +%Y%m%d) exaexa/shinysom:latest`
 4. `docker login ........`
